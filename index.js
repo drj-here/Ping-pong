@@ -21,6 +21,10 @@ document.addEventListener("DOMContentLoaded",()=>{
     ball.style.left=`${ballX}px`;
    ball.style.top=`${ballY}px`;
 
+   if(ballX< paddle.offsetLeft + paddle.offsetWidth && ballY> paddle.offsetTop && 
+      ballY- ball.offsetHeight <paddle.offsetTop + paddle.offsetHeight
+   ) dx*=-1;
+
     if(ballX>=table.offsetWidth-ball.offsetWidth || ballX<=0) dx*=-1;
     if(ballY>=table.offsetHeight-ball.offsetHeight || ballY<=0) dy*=-1;
    },1);
@@ -28,6 +32,7 @@ document.addEventListener("DOMContentLoaded",()=>{
    let paddleY=0;
    let pdy=5;
    document.addEventListener("keydown",(event)=>{
+    event.preventDefault();
     if(event.keyCode==38){
         if(paddleY>pdy) paddleY+=(-1*pdy);
     }
