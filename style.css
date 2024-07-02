@@ -30,3 +30,8 @@ html{
     background-color: yellow;
     position: absolute;
 }
+
+#score{
+    margin-top: 500px;
+    margin-left: 10px;
+}
